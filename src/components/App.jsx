@@ -5,7 +5,8 @@ import VideoPlayer from './VideoPlayer.js';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {videoObjects: exampleVideoData};
+    this.state = {videoObjects: exampleVideoData, currentVideo: exampleVideoData[0]};
+    this.onClick = this.onClick.bind(this);
   }
   render() {
     // console.log(exampleVideoData);
@@ -18,18 +19,23 @@ class App extends React.Component {
       <div className="row">
         <div className="col-md-7">
           <div><h5><em>videoPlayers</em>{
-            this.state.videoObjects.map((video) => {
-              return (
-                <VideoPlayer key={video.id.videoId} video={video}/>
-              );
-            })
+            <VideoPlayer key={this.state.currentVideo.id.videoId} video={this.state.currentVideo}/>
           }</h5></div>
         </div>
         <div className="col-md-5">
-          <div><h5><em>videoList</em><VideoList videos={this.state.videoObjects}/></h5></div>
+          <div><h5><em>videoList</em><VideoList onClick={this.onClick} videos={this.state.videoObjects}/></h5></div>
         </div>
       </div>
     </div>);
+  }
+  handleChange(video) {
+    this.setState({
+      currentVideo: video
+    });
+  }
+  onClick(e) {
+    console.log('>>', e);
+    this.handleChange(e);
   }
 }
 

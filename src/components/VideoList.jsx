@@ -1,4 +1,6 @@
 import VideoListEntry from './VideoListEntry.js';
+// import App from './App.js';
+// onClick={App.onClick}
 
 var VideoList = (props) => {
 
@@ -7,7 +9,7 @@ var VideoList = (props) => {
       {
         props.videos.map((video) => {
           return (
-            <VideoListEntry key={video.id.videoId} video={video}/>
+            <VideoListEntry onClick={props.onClick.bind(props, video)} key={video.id.videoId} video={video}/>
           );
         })
       }</h5></div>
