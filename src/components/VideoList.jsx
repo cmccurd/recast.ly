@@ -5,15 +5,13 @@ import VideoListEntry from './VideoListEntry.js';
 var VideoList = (props) => {
 
   return (<div className="video-list">
-    <div><h5><em>videoListEntry</em>
-      {
-        props.videos.map((video) => {
-          console.log(props.videos.length);
-          return (
-            <VideoListEntry onClick={() => { props.onClick(video); }} key={video.id.videoId} video={video}/>
-          );
-        })
-      }</h5></div>
+    {
+      props.videos.map((video) => {
+        return (
+          <VideoListEntry onClick={() => { props.onClick(video); }} key={video.id.videoId} video={video}/>
+        );
+      })
+    }
   </div>);
 };
 

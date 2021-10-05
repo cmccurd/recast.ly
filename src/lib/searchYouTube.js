@@ -6,6 +6,19 @@ $.ajaxPrefilter(function (settings, _, jqXHR) {
 
 var searchYouTube = (query, callback) => {
   // TODO
+  $.ajax({
+    url: Parse.server,
+    type: 'GET',
+    data: { q: query,
+      order: 'relevance' },
+    contentType: 'application/json',
+    success: function (data) {
+      callback(data);
+    },
+    error: error || function(error) {
+      console.error('Recastly: failed to fetch messages', error);
+    }
+  });
 };
 
 export default searchYouTube;
