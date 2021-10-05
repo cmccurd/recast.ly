@@ -8,7 +8,7 @@ class App extends React.Component {
     this.state = {videoObjects: exampleVideoData};
   }
   render() {
-    console.log(exampleVideoData);
+    // console.log(exampleVideoData);
     return (<div>
       <nav className="navbar">
         <div className="col-md-6 offset-md-3">
