@@ -8,8 +8,9 @@ var VideoList = (props) => {
     <div><h5><em>videoListEntry</em>
       {
         props.videos.map((video) => {
+          console.log(props.videos.length);
           return (
-            <VideoListEntry onClick={props.onClick.bind(props, video)} key={video.id.videoId} video={video}/>
+            <VideoListEntry onClick={() => { props.onClick(video); }} key={video.id.videoId} video={video}/>
           );
         })
       }</h5></div>

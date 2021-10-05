@@ -34,7 +34,6 @@ class App extends React.Component {
     });
   }
   onClick(e) {
-    console.log('>>', e);
     this.handleChange(e);
   }
 }
